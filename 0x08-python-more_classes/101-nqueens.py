@@ -2,60 +2,92 @@
 import sys
 
 
-def is_safe(board, row, col, N):
-
-    if any(board[row]):
-        return False
-
-    if any(board[i][col] for i in range(N)):
-        return False
-
-    if any(board[i][j] for i, j in zip(range(row, -1, -1), range(col, -1, -1))):
-        return False
-
-    if any(board[i][j] for i, j in zip(range(row, -1, -1), range(col, N))):
-        return False
-    return True
+def init_board(n):
+    board = []
+    [board.append([]) for i in range(n)]
+    [row.append(' ') for i in range(n) for row in board]
+    return (board)
 
 
-def solve_nqueens(N):
+def board_deepcopy(board):
+    if isinstance(board, list):
+        return list(map(board_deepcopy, board))
+    return (board)
 
-    if N < 4:
-        print("N must be at least 4")
-        sys.exit(1)
 
-    board = [[0 for _ in range(N)] for _ in range(N)]
-    solutions = []
+def get_solution(board):
+    solution = []
+    for r in range(len(board)):
+        for c in range(len(board)):
+            if board[r][c] == "Q":
+                solution.append([r, c])
+                break
+    return (solution)
 
-    def solve(row):
-        nonlocal solutions
-        if row == N:
-            solutions.append(["".join("Q" if col == 1 else "." for col in row) for row in board])
-            return
 
-        for col in range(N):
-            if is_safe(board, row, col, N):
-                board[row][col] = 1
-                solve(row + 1)
-                board[row][col] = 0
+def xout(board, row, col):
+    for c in range(col + 1, len(board)):
+        board[row][c] = "x"
+    for c in range(col - 1, -1, -1):
+        board[row][c] = "x"
+    for r in range(row + 1, len(board)):
+        board[r][col] = "x"
+    for r in range(row - 1, -1, -1):
+        board[r][col] = "x"
+    c = col + 1
+    for r in range(row + 1, len(board)):
+        if c >= len(board):
+            break
+        board[r][c] = "x"
+        c += 1
+    c = col - 1
+    for r in range(row - 1, -1, -1):
+        if c < 0:
+            break
+        board[r][c]
+        c -= 1
+    c = col + 1
+    for r in range(row - 1, -1, -1):
+        if c >= len(board):
+            break
+        board[r][c] = "x"
+        c += 1
+    c = col - 1
+    for r in range(row + 1, len(board)):
+        if c < 0:
+            break
+        board[r][c] = "x"
+        c -= 1
 
-    solve(0)
 
-    for solution in solutions:
-        for row in solution:
-            print(row)
-        print()
+def recursive_solve(board, row, queens, solutions):
+    if queens == len(board):
+        solutions.append(get_solution(board))
+        return (solutions)
+
+    for c in range(len(board)):
+        if board[row][c] == " ":
+            tmp_board = board_deepcopy(board)
+            tmp_board[row][c] = "Q"
+            xout(tmp_board, row, c)
+            solutions = recursive_solve(tmp_board, row + 1,
+                                        queens + 1, solutions)
+
+    return (solutions)
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
-
-    try:
-        N = int(sys.argv[1])
-    except ValueError:
+    if sys.argv[1].isdigit() is False:
         print("N must be a number")
         sys.exit(1)
+    if int(sys.argv[1]) < 4:
+        print("N must be at least 4")
+        sys.exit(1)
 
-    solve_nqueens(N)
+    board = init_board(int(sys.argv[1]))
+    solutions = recursive_solve(board, 0, 0, [])
+    for sol in solutions:
+        print(sol)
