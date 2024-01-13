@@ -34,3 +34,9 @@ print("----format specifier---")
 
 print("Balance: ${:.2f}".format(5425.9292))
 print("{:*^30}".format("Centered string"))
+
+
+print(f"----formatted string literals----")
+
+print(f"""Hello {name}, you are a {age} years old, working as {profession},
+graduated in {graduation_year}""")
