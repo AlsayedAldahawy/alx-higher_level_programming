@@ -28,3 +28,9 @@ print("/*/*using dictionaries/*/*")
 person = {"name": "Hamada", "age": 28, "job":"an engineer"}
 
 print("Hi {name}!, you are {age} years old, you are working as {job}".format(**person))
+
+
+print("----format specifier---")
+
+print("Balance: ${:.2f}".format(5425.9292))
+print("{:*^30}".format("Centered string"))
