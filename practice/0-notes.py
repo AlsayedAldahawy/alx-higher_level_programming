@@ -22,7 +22,7 @@ print("""Hello, %(n)s!, you are %(a)d yo. \nyou are %(s)s working as %(p)s, with
 print('''----The str.format() Method----''')
 print("""Hello, {}!, you are {} yo. \nyou are {} working as {}, with {} years experience. \
 \nyou have graduated in {} \nyou have {} siblings""".format(name, age, status, profession, experience, graduation_year, siblings))
-print('\n')
+print()
 print("/*/*using dictionaries/*/*")
 
 person = {"name": "Hamada", "age": 28, "job":"an engineer"}
