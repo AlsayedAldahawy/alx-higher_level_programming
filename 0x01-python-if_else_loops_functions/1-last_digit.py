@@ -15,4 +15,4 @@ elif last_digit < 6:
 else:
     str_ = "and is 0"
 
-print(f"Last digit of {number} is {last_digit} and {str_}")
+print(f"Last digit of {number} is {last_digit} {str_}")
