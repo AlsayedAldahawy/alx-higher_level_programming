@@ -22,4 +22,4 @@ def uppercase(str):
         else:
             c = ord(i)
         print("{}".format(chr(c)), end=(""))
-    print("")
+    print("".format())
