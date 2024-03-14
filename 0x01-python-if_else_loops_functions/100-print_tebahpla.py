@@ -1,6 +1,14 @@
 #!/usr/bin/python3
-for i in range(26):
+
+'''
+    Write a program that prints the ASCII alphabet,
+    in reverse order, alternating lowercase and uppercase
+    (z in lowercase and Y in uppercase)
+'''
+
+for i in range(122, 96, -1):
     if i % 2 == 0:
-        print('{:c}'.format(122 - i), end='')
+        c = chr(i)
     else:
-        print('{:c}'.format(90 - i), end='')
+        c = chr(i - 32)
+    print(c, end=(""))
