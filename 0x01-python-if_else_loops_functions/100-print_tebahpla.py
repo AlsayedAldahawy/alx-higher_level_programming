@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-    Write a program that prints the ASCII alphabet,
+    Write a program that displays the ASCII alphabet,
     in reverse order, alternating lowercase and uppercase
     (z in lowercase and Y in uppercase)
 '''
