@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+
+'''
+Write a program that prints the ASCII alphabet,
+in lowercase, except q and e, not followed by a new line.
+'''
 for i in range(97, 123):
-    if chr(i) == 'q' or chr(i) == 'e':
+    if i == 101 or i == 113:
         continue
-    print(chr(i).format(i), end='')
+    print("{}".format(chr(i)), end=(""))
