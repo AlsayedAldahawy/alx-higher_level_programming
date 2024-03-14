@@ -4,6 +4,7 @@ number = random.randint(-10000, 10000)
 
 if number < 0:
     last_digit = -number % 10
+    last_digit *= -1
 else:
     last_digit = number % 10
 
@@ -14,4 +15,4 @@ elif last_digit < 6:
 else:
     str_ = "and is 0"
 
-print(f"Last digit of {number} is {abs(last_digit)} and {str_}")
+print(f"Last digit of {number} is {last_digit} and {str_}")
