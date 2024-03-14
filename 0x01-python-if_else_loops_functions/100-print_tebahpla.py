@@ -11,4 +11,4 @@ for i in range(122, 96, -1):
         c = chr(i)
     else:
         c = chr(i - 32)
-    print(c, end=(""))
+    print("{}".format(c), end=(""))
