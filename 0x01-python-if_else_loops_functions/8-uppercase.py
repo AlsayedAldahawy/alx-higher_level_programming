@@ -14,12 +14,9 @@ You are not allowed to use str.upper() and str.isupper()
 
 def uppercase(str):
 
-    c = 0
-
     for i in str:
         if i >= 'a' and i <= 'z':
-            c = ord(i) - 32
-        else:
-            c = ord(i)
-        print("{}".format(chr(c)), end=(""))
+            i = chr(ord(i) - 32)
+
+        print("{}".format(i), end=(""))
     print("".format())
