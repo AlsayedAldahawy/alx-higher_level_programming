@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import add_0 as ad
+from add_0 import add
 
 if __name__ == "__main__":
     a = 1
     b = 2
-    c = ad.add(a, b)
+    c = add(a, b)
 
     print("{} + {} = {}".format(a, b, c))
