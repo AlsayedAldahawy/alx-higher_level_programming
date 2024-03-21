@@ -19,7 +19,7 @@ if __name__ == "__main__":
     elif operator == '*':
         answer = a * b
     elif operator == '/':
-        answer = a / b
+        answer = int(a / b)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
