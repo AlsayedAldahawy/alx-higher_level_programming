@@ -24,5 +24,5 @@ def add_tuple(tuple_a=(), tuple_b=()):
     else:
         b0 = tuple_b[0]
         b1 = tuple_b[1]
-    len_c = (a0 + b0, a1 + b1)
-    return len_c
+    tuple_c = (a0 + b0, a1 + b1)
+    return tuple_c
