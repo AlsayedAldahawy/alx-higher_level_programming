@@ -11,10 +11,17 @@
 
 def search_replace(my_list, search, replace):
 
-    new_list = []
+    # 1- using loops
+    # new_list = []
 
-    for i in my_list:
-        if i is search:
-            i = replace
-        new_list.append(i)
+    # for i in my_list:
+    #     if i is search:
+    #         i = replace
+    #     new_list.append(i)
+
+    # 2- using List Comprehensions
+    # new_list = [i if i != search else replace for i in my_list]
+
+    # 3- using lambda and map functions
+    new_list = list(map(lambda x: x if x != search else replace, my_list))
     return new_list
