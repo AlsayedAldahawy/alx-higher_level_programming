@@ -11,4 +11,5 @@ def only_diff_elements(set_1, set_2):
     # return newList
 
     # 2- using set operations (&, |, -, ^)
-    return (set_1 | set_2) - (set_1 & set_2)
+    # return (set_1 | set_2) - (set_1 & set_2)
+    return set_1 ^ set_2
