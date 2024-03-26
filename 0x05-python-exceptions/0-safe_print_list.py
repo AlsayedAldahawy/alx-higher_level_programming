@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 def safe_print_list(my_list=[], x=0):
-    try:
-        for i in range(x):
-            print(my_list[i], end="")
-            if i + 1 == x or my_list[i] == my_list[-1]:
-                print("")
-                break
+    return_value = 0
 
-    except ValueError:
-        pass
-    return i + 1
+    for i in range(x):
+        try:
+            print(my_list[i], end="")
+            return_value += 1
+
+        except IndexError:
+            pass
+    print("")
+    return return_value
