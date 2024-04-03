@@ -2,7 +2,7 @@
 Square = __import__('4-square').Square
 
 my_square = Square(89)
-my_square.size = 7
+print(my_square.size)
 print("Area: {} for size: {}".format(my_square.area(), my_square.size))
 
 my_square.size = 3
