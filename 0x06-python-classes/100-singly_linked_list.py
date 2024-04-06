@@ -45,13 +45,21 @@ class SinglyLinkedList:
 
     def __str__(self):
         """Define the print() representation of a SinglyLinkedList."""
-        values = []
         current = self.__head
 
+        # values = []
+        # while current:
+        #     values.append(str(current.data))
+        #     current = current.next_node
+        # return '\n'.join(values)
+
+        string = ""
         while current:
-            values.append(str(current.data))
+            string += (str(current.data)) + '\n'
             current = current.next_node
-        return '\n'.join(values)
+        str_2 = string[:-1]
+        return str_2
+
     
 
 
