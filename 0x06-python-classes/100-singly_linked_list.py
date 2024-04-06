@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-'''square class'''
+'''Node class to creat a linked list node'''
 
 
 class Node:
@@ -28,6 +28,9 @@ class Node:
         if not isinstance(value, int):
             raise TypeError('data must be an integer')
         self.__data = value
+
+
+'''SinglyLinkedList class to creat a singly linked list'''
 
 
 class SinglyLinkedList:
