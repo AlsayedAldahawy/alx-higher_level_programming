@@ -28,23 +28,31 @@ class Node:
             raise TypeError('data must be an integer')
         self.__data = value
         
-def insert_at_beginning(head, data):
-    new_node = Node(data)
-    new_node.next_node = head
+class SinglyLinkedList:
+    def __init__(self):
+        self.__head = None
 
-    return new_node
+    def sorted_insert(self, value):
+        new_node = Node(value)
+        if self.__head == None:
+            new_node.data = value
+            new_node.next_node = None
+            self.__head = new_node
+        else:
+            new_node.data = value
+            new_node.next_node = self.__head
+            self.__head = new_node
 
-def print_list(head):
-    current = head
-    while current is not None:
-        print(current.data)
-        current = current.next_node
-head = None
-head = insert_at_beginning(head, 5)
-head = insert_at_beginning(head, 5)
-head = insert_at_beginning(head, 7)
+    def __str__(self):
+        """Define the print() representation of a SinglyLinkedList."""
+        values = []
+        current = self.__head
 
-print_list(head)
+        while current:
+            values.append(str(current.data))
+            current = current.next_node
+        return '\n'.join(values)
+    
 
 
     
