@@ -4,6 +4,8 @@
 
 
 class Node:
+    '''Node class to creat a linked list node'''
+
     def __init__(self, data, next_node=None):
 
         self.data = data
@@ -30,10 +32,9 @@ class Node:
         self.__data = value
 
 
-'''SinglyLinkedList class to creat a singly linked list'''
-
-
 class SinglyLinkedList:
+    '''SinglyLinkedList class to creat a singly linked list'''
+
     def __init__(self):
         self.__head = None
 
