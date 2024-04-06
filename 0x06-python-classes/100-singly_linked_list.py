@@ -53,12 +53,12 @@ class SinglyLinkedList:
         #     current = current.next_node
         # return '\n'.join(values)
 
+        # another way
         string = ""
         while current:
             string += (str(current.data)) + '\n'
             current = current.next_node
-        str_2 = string[:-1]
-        return str_2
+        return string[:-1]
 
     
 
