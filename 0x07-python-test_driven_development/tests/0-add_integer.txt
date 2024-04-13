@@ -1,0 +1,35 @@
+# importing the add_integer function from "0-add_integer" module
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# checking normal behavior of the function
+>>> add_integer(5, 6)
+11
+>>> add_integer(-3, 2)
+-1
+
+# checking the floats
+>>> add_integer(1.5, -5.4)
+-4
+
+# checking Traceback and TypeError
+>>> add_integer("d", 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(5, "5")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+# checking negleting the value of b which is by default is assigned to 98
+>>> add_integer(1,)
+99
+
+# checking when a == None
+>>> add_integer(None,)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+# checking SyntaxError
+>>> add_integer(,) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
