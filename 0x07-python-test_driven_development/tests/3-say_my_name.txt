@@ -3,11 +3,11 @@
 """
 # Valid Case (Both First Name and Last Name)
 >>> say_my_name("John", "Doe")
-John Doe
+My name is John Doe
 
 # Valid Case (Only First Name)
 >>> say_my_name("Alice")
-Alice 
+My name is Alice 
 
 # Invalid First Name (Not a String)
 >>> say_my_name(123, "Smith")
