@@ -8,7 +8,7 @@
 >>> matrix_divided([[1, 2], [3, 4]], 2)
 [[0.5, 1.0], [1.5, 2.0]]
 
->>> matrix_divided([[1]], 1)
+>>> matrix_divided(matrix=[[1]], div=1)
 [[1.0]]
 
 # Valid Matrix and Non-Zero Float Divisor
