@@ -1,0 +1,30 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+"""
+# Valid Case (Both First Name and Last Name)
+>>> say_my_name("John", "Doe")
+John Doe
+
+# Valid Case (Only First Name)
+>>> say_my_name("Alice")
+Alice 
+
+# Invalid First Name (Not a String)
+>>> say_my_name(123, "Smith")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Invalid Last Name (Not a String)
+>>> say_my_name("Jane", 456)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+# Not passing arguments
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+"""
