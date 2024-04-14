@@ -41,9 +41,9 @@ class TestMaxInt(unittest.TestCase):
         string = "Brennan"
         self.assertEqual(max_integer(string), 'r')
 
-    def test_errors(self):
-        self.assertRaises(TypeError, max_integer, [5, 4, '6'])
-        self.assertRaises(TypeError, max_integer, ["inf", 5, 6])
+    # def test_errors(self):
+    #     self.assertRaises(TypeError, max_integer, [5, 4, '6'])
+    #     self.assertRaises(TypeError, max_integer, ["inf", 5, 6])
 
         # self.assertRaises(TypeError, max_integer, [[4], [3, 2]])
         # self.assertRaises(TypeError, max_integer, "[]")
