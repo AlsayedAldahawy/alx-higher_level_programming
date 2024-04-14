@@ -27,6 +27,11 @@ Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+>>> matrix_divided("not a matrix", 5)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
 # Invalid Matrix (Inner Lists Have Different Lengths)
 >>> matrix_divided([[1, 2], [3, 4, 5]], 2)
 Traceback (most recent call last):
