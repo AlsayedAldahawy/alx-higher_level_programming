@@ -1,0 +1,76 @@
+Trying:
+    matrix_divided = __import__('2-matrix_divided').matrix_divided
+Expecting nothing
+ok
+Trying:
+    matrix_divided([[1, 2], [3, 4]], 2)
+Expecting:
+    [[0.5, 1.0], [1.5, 2.0]]
+ok
+Trying:
+    matrix_divided([[5, 10], [15, 20]], 3.5)
+Expecting:
+    [[1.43, 2.86], [4.29, 5.71]]
+ok
+Trying:
+    matrix_divided([[1, 2], [3, 4]], 0)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+ok
+Trying:
+    matrix_divided([1, 2, 3], 5)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+**********************************************************************
+File "tests/2-matrix_divided.txt", line 22, in 2-matrix_divided.txt
+Failed example:
+    matrix_divided([1, 2, 3], 5)
+Expected:
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 2-matrix_divided.txt[4]>", line 1, in <module>
+        matrix_divided([1, 2, 3], 5)
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/2-matrix_divided.py", line 32, in matrix_divided
+        raise TypeError("matrix must be a matrix (list of lists)\
+    TypeError: matrix must be a matrix (list of lists)                             of integers/floats
+Trying:
+    matrix_divided([[1, 2], [3, 4, 5]], 2)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+ok
+Trying:
+    matrix_divided([[1, 2], [3, 4]], 'abc')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+    """
+**********************************************************************
+File "tests/2-matrix_divided.txt", line 34, in 2-matrix_divided.txt
+Failed example:
+    matrix_divided([[1, 2], [3, 4]], 'abc')
+Expected:
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+    """
+Got:
+Traceback (most recent call last):
+TypeError: div must be a number
+**********************************************************************
+1 items had failures:
+   2 of   7 in 2-matrix_divided.txt
+7 tests in 1 items.
+5 passed and 2 failed.
+***Test Failed*** 2 failures.
