@@ -31,13 +31,17 @@ class TestMaxInt(unittest.TestCase):
         # Test with duplicate maximum values
         self.assertEqual(max_integer([10, 20, 20, 30]), 30)
 
+    def test_floats(self):
+        # Test a list of floats.
+        floats = [1.53, 6.33, -9.123, 15.2, 6.0]
+        self.assertEqual(max_integer(floats), 15.2)
+
     def test_errors(self):
         self.assertRaises(TypeError, max_integer, [5, 4, '6'])
         self.assertRaises(TypeError, max_integer, ["inf", 5, 6])
 
         # self.assertRaises(TypeError, max_integer, [[4], [3, 2]])
         # self.assertRaises(TypeError, max_integer, "[]")
-        # self.assertRaises(TypeError, max_integer, [2.5, 3.5, 7.6])
         # self.assertRaises(TypeError, max_integer, "inf")
 
         # the last commented cases should give a Type error, but the function
