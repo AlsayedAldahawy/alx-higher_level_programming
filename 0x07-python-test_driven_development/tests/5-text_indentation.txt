@@ -14,6 +14,13 @@ How does it work?
 It's simple.
 <BLANKLINE>
 
+# Valid Case (starting with spaces)
+>>> text_indentation("    Woah now.    This is messy.   ")
+Woah now.
+<BLANKLINE>
+This is messy.
+<BLANKLINE>
+
 # Valid Case (Empty Text)
 >>> text_indentation("")
 
