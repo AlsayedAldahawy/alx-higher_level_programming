@@ -1,0 +1,48 @@
+"""
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Valid Case (No Special Characters)
+>>> text_indentation("Hello, world!")
+Hello, world!
+
+# Valid Case (Multiple Sentences)
+>>> text_indentation("This is a test. How does it work? It's simple.")
+This is a test.
+<BLANKLINE>
+How does it work?
+<BLANKLINE>
+It's simple.
+<BLANKLINE>
+
+# Valid Case (Empty Text)
+>>> text_indentation("")
+
+# Invalid Case (Non-String Input)
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Valid Case (No Special Characters)
+>>> text_indentation("Hello, world!")
+Hello, world!
+
+# Valid Case (multiple spaces after a Special Character)
+>>> text_indentation("Hello.       I'm majid.?:     ")
+Hello.
+<BLANKLINE>
+I'm majid.
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+
+
+# Invalid Case (No Arguments)
+>>> text_indentation()
+Traceback (most recent call last):
+    ...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+"""
