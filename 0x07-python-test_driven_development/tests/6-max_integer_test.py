@@ -31,21 +31,11 @@ class TestMaxInt(unittest.TestCase):
         # Test with duplicate maximum values
         self.assertEqual(max_integer([10, 20, 20, 30]), 30)
 
-    # def test_ordered_list(self):
-    #     """Test an ordered list of integers."""
-    #     ordered = [1, 2, 3, 4]
-    #     self.assertEqual(max_integer(ordered), 4)
-
-    # def test_unordered_list(self):
-    #     """Test an unordered list of integers."""
-    #     unordered = [1, 2, 4, 3]
-    #     self.assertEqual(max_integer(unordered), 4)
-
     def test_max_at_begginning(self):
-        """Test a list with a beginning max value."""
+        # Test a list with a beginning max value.
+
         max_at_beginning = [4, 3, 2, 1]
         self.assertEqual(max_integer(max_at_beginning), 4)
-
 
     # def test_errors(self):
     #     self.assertRaises(TypeError, max_integer, [5, 4, '6'])
