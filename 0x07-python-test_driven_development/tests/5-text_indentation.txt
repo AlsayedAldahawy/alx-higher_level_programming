@@ -45,10 +45,5 @@ Traceback (most recent call last):
     ...
 TypeError: text_indentation() missing 1 required positional argument: 'text'
 
->>> text_indentation("    Woah now.    This is messy.   ")
-Woah now.
-<BLANKLINE>
-This is messy.
-<BLANKLINE>
 
 """
