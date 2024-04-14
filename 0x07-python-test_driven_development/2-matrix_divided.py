@@ -23,7 +23,7 @@ def matrix_divided(matrix, div):
     matrix_error = "matrix must be a matrix (list of lists) of integers/floats"
 
     # checking if matrix is a list type.
-    if type(matrix) is not list or matrix is None:
+    if type(matrix) is not list or matrix is None or matrix == []:
         raise TypeError(matrix_error)
 
     for i in matrix:
