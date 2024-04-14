@@ -35,10 +35,10 @@ TypeError: text must be a string
 Hello, world!
 
 # Valid Case (multiple spaces after a Special Character)
->>> text_indentation("Hello.       I'm majid.?:     ")
+>>> text_indentation("Hello.       I'm Alsayed.?:     ")
 Hello.
 <BLANKLINE>
-I'm majid.
+I'm Alsayed.
 <BLANKLINE>
 ?
 <BLANKLINE>
