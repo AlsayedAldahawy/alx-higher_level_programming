@@ -1,0 +1,652 @@
+Trying:
+    lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+Expecting nothing
+ok
+Trying:
+    matrix_a = [[1, 2], [3, 4]]
+Expecting nothing
+ok
+Trying:
+    matrix_b = [[5, 6], [7, 8]]
+Expecting nothing
+ok
+Trying:
+    result_matrix = lazy_matrix_mul(matrix_a, matrix_b)
+Expecting nothing
+ok
+Trying:
+    result_matrix
+Expecting:
+    [[19, 22], [43, 50]]
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 21, in 101-lazy_matrix_mul.txt
+Failed example:
+    result_matrix
+Expected:
+    [[19, 22], [43, 50]]
+Got:
+    array([[19, 22],
+           [43, 50]])
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+Expecting:
+    [[7, 10], [15, 22]]
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 24, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+Expected:
+    [[7, 10], [15, 22]]
+Got:
+    array([[ 7, 10],
+           [15, 22]])
+Trying:
+    lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+Expecting:
+    [[13, 16]]
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 27, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+Expected:
+    [[13, 16]]
+Got:
+    array([[13, 16]])
+Trying:
+    lazy_matrix_mul([[1, 2, 3]], [[3, 4, 5], [5, 6, 8], [9, 10, 11]])
+Expecting:
+    [[40, 46, 54]]
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 30, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2, 3]], [[3, 4, 5], [5, 6, 8], [9, 10, 11]])
+Expected:
+    [[40, 46, 54]]
+Got:
+    array([[40, 46, 54]])
+Trying:
+    lazy_matrix_mul([[2]], [[7]])
+Expecting:
+    [[14]]
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 33, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[2]], [[7]])
+Expected:
+    [[14]]
+Got:
+    array([[14]])
+Trying:
+    matrixA = [[1, 2], [3, 4]]
+Expecting nothing
+ok
+Trying:
+    matrixB = [[5, 6, 7], [8, 9, 10]]
+Expecting nothing
+ok
+Trying:
+    lazy_matrix_mul(matrixA, matrixB)
+Expecting:
+    [[21 24 27]
+     [47 54 61]]
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 38, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul(matrixA, matrixB)
+Expected:
+    [[21 24 27]
+     [47 54 61]]
+Got:
+    array([[21, 24, 27],
+           [47, 54, 61]])
+Trying:
+    empty_matrix = []
+Expecting nothing
+ok
+Trying:
+    lazy_matrix_mul(empty_matrix, matrix_b)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 43, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul(empty_matrix, matrix_b)
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[13]>", line 1, in <module>
+        lazy_matrix_mul(empty_matrix, matrix_b)
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+Trying:
+    invalid_matrix = [[1, 2], [3, 'x']]
+Expecting nothing
+ok
+Trying:
+    lazy_matrix_mul(invalid_matrix, matrix_b)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 49, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul(invalid_matrix, matrix_b)
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[15]>", line 1, in <module>
+        lazy_matrix_mul(invalid_matrix, matrix_b)
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    TypeError: invalid data type for einsum
+Trying:
+    incompatible_matrix = [[1, 2], [3, 4]]
+Expecting nothing
+ok
+Trying:
+    incompatible_matrix_b = [[5, 6, 7], [8, 9, 10], [8, 5, 7]]
+Expecting nothing
+ok
+Trying:
+    lazy_matrix_mul(incompatible_matrix, incompatible_matrix_b)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 56, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul(incompatible_matrix, incompatible_matrix_b)
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[18]>", line 1, in <module>
+        lazy_matrix_mul(incompatible_matrix, incompatible_matrix_b)
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (2,2) and (3,3) not aligned: 2 (dim 1) != 3 (dim 0)
+Trying:
+    lazy_matrix_mul(9, [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 61, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul(9, [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[19]>", line 1, in <module>
+        lazy_matrix_mul(9, [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: Scalar operands are not allowed, use '*' instead
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], 9)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 66, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], 9)
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[20]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3, 4]], 9)
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: Scalar operands are not allowed, use '*' instead
+Trying:
+    lazy_matrix_mul(9, 9)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 71, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul(9, 9)
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[21]>", line 1, in <module>
+        lazy_matrix_mul(9, 9)
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: Scalar operands are not allowed, use '*' instead
+Trying:
+    lazy_matrix_mul([1, 2, 3, 4], [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list of lists
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 77, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([1, 2, 3, 4], [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list of lists
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[22]>", line 1, in <module>
+        lazy_matrix_mul([1, 2, 3, 4], [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (4,) and (2,2) not aligned: 4 (dim 0) != 2 (dim 0)
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], [1, 2, 3, 4])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list of lists
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 82, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], [1, 2, 3, 4])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list of lists
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[23]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3, 4]], [1, 2, 3, 4])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (2,2) and (4,) not aligned: 2 (dim 1) != 4 (dim 0)
+Trying:
+    lazy_matrix_mul([1, 2, 3, 4], [1, 2, 3, 4])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list of lists
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 87, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([1, 2, 3, 4], [1, 2, 3, 4])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list of lists
+Got:
+    30
+Trying:
+    lazy_matrix_mul([], [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 93, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([], [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[25]>", line 1, in <module>
+        lazy_matrix_mul([], [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+Trying:
+    lazy_matrix_mul([[]], [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 98, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[]], [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[26]>", line 1, in <module>
+        lazy_matrix_mul([[]], [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], [])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_b can't be empty
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 103, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], [])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_b can't be empty
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[27]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3, 4]], [])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_b can't be empty
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 108, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_b can't be empty
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[28]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3, 4]], [[]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+Trying:
+    lazy_matrix_mul([], [])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 113, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([], [])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+Got:
+    0.0
+Trying:
+    lazy_matrix_mul([[]], [[]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 118, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[]], [[]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[30]>", line 1, in <module>
+        lazy_matrix_mul([[]], [[]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (1,0) and (1,0) not aligned: 0 (dim 1) != 1 (dim 0)
+Trying:
+    lazy_matrix_mul([[1, 2], ["Betty", 4]], [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 124, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], ["Betty", 4]], [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[31]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], ["Betty", 4]], [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    TypeError: invalid data type for einsum
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1, "Holberton"], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b should contain only integers or floats
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 129, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1, "Holberton"], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b should contain only integers or floats
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[32]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3, 4]], [[1, "Holberton"], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    TypeError: invalid data type for einsum
+Trying:
+    lazy_matrix_mul([[1, 2], [None, 4]], [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 134, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [None, 4]], [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[33]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [None, 4]], [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    TypeError: Object arrays are not currently supported
+Trying:
+    lazy_matrix_mul([[1, 2], [3]], [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 140, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3]], [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[34]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3]], [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: setting an array element with a sequence.
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_b must be of the same size
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 145, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_b must be of the same size
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[35]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3, 4]], [[1], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: setting an array element with a sequence.
+Trying:
+    lazy_matrix_mul([[1, 2], [3]], [[1], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 150, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3]], [[1], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[36]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3]], [[1], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: setting an array element with a sequence.
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [5, 6]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 156, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [5, 6]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[37]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [5, 6]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (2,2) and (3,2) not aligned: 2 (dim 1) != 3 (dim 0)
+Trying:
+    lazy_matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+**********************************************************************
+File "tests/101-lazy_matrix_mul.txt", line 161, in 101-lazy_matrix_mul.txt
+Failed example:
+    lazy_matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 101-lazy_matrix_mul.txt[38]>", line 1, in <module>
+        lazy_matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]])
+      File "/home/alsayed/ALX/alx-higher_level_programming/0x07-python-test_driven_development/101-lazy_matrix_mul.py", line 13, in lazy_matrix_mul
+        return (np.matmul(m_a, m_b))
+    ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+Trying:
+    lazy_matrix_mul()
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+ok
+Trying:
+    lazy_matrix_mul([[1, 2], [3, 4]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+ok
+**********************************************************************
+1 items had failures:
+  29 of  41 in 101-lazy_matrix_mul.txt
+41 tests in 1 items.
+12 passed and 29 failed.
+***Test Failed*** 29 failures.
