@@ -1,0 +1,36 @@
+"""
+This is a doctest file for the matrix_mul function.
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+>>> matrix_a = [[1, 2], [3, 4]]
+>>> matrix_b = [[5, 6], [7, 8]]
+>>> result_matrix = matrix_mul(matrix_a, matrix_b)
+>>> result_matrix
+[[19, 22], [43, 50]]
+
+>>> matrixA = [[1, 2], [3, 4]]
+>>> matrixB = [[5, 6, 7], [8, 9, 10]]
+>>> matrix_mul(matrixA, matrixB)
+[[21, 24, 27], [47, 54, 61]]
+
+>>> empty_matrix = []
+>>> matrix_mul(empty_matrix, matrix_b)
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty
+
+>>> invalid_matrix = [[1, 2], [3, 'x']]
+>>> matrix_mul(invalid_matrix, matrix_b)
+Traceback (most recent call last):
+...
+TypeError: m_a should contain only integers or floats
+
+>>> incompatible_matrix = [[1, 2], [3, 4]]
+>>> incompatible_matrix_b = [[5, 6, 7], [8, 9, 10], [8, 5, 7]]
+>>> matrix_mul(incompatible_matrix, incompatible_matrix_b)
+Traceback (most recent call last):
+...
+ValueError: m_a and m_b can't be multiplied
+
+"""
