@@ -1,5 +1,10 @@
 #!/use/bin/python3
 
+'''
+    Module contains matrix_mul function
+'''
+
+
 def matrix_mul(m_a, m_b):
     """
     Performs matrix multiplication between two matrices
