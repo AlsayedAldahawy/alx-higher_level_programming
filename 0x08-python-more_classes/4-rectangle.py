@@ -91,4 +91,12 @@ class Rectangle:
         return rect_str
 
     def __repr__(self):
+        """
+        Returns a string representation of the Rectangle object.
+
+        The format of the returned string is "Rectangle(width, height)".
+
+        Returns:
+            str: A formatted string representing the Rectangle.
+        """
         return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
