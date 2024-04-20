@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""
+Module contains LockedClass class.
+"""
+
+
 class LockedClass:
     """
     A class that allows only the 'first_name' attribute to be set.
