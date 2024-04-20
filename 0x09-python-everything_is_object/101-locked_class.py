@@ -20,6 +20,7 @@ class LockedClass:
             AttributeError: If the attribute name is not 'first_name'.
         """
         if name != "first_name":
-            raise AttributeError(f"'LockedClass' object has no attribute '{name}'")
+            raise AttributeError(
+                f"'LockedClass' object has no attribute '{name}'")
         else:
             super().__setattr__(name, value)
