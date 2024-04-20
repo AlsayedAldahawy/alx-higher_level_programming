@@ -49,7 +49,6 @@ class Rectangle:
 
 
         Static methods:
-
         bigger_or_equal: to return the biggest rectangle based on the area.
 
         Args:
@@ -61,6 +60,17 @@ class Rectangle:
                 If both rectangles have the same area, returns rect_1.
         Raises:
             TypeError: If rect_1 or rect_2 is not an instance of Rectangle.
+
+        Class methods:
+
+        square(cls, size): Creates new Rectangle instance with
+            equal width and height which is square.
+
+        Args:
+            size (int, optional): Size of the square (default is 0).
+
+        Returns:
+            Rectangle: A new Rectangle instance with width == height == size.
          """
     number_of_instances = 0
     print_symbol = '#'
@@ -159,4 +169,4 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        return (Rectangle(size, size))
+        return cls(size, size)
