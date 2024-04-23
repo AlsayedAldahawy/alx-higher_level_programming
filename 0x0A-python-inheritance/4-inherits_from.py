@@ -12,4 +12,4 @@ def inherits_from(obj, a_class):
     Returns:
         _type_: True of the same, otherwise False.
     """
-    return issubclass(type(obj), a_class) and type(obj) is not a_class
+    return isinstance(obj, a_class) and type(obj) is not a_class
