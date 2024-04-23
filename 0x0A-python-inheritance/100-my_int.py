@@ -33,7 +33,11 @@ class MyInt(int):
         Returns:
             bool: True if the values are not equal, False otherwise.
         """
-        return False
+        # return False
+        # return int(self) != other
+        # return super().__ne__(other)
+        return int.__ne__(self, other)
+        # all the above solutions work the same
 
     def __ne__(self, other):
         """
@@ -45,4 +49,8 @@ class MyInt(int):
         Returns:
             bool: True if the values are equal, False otherwise.
         """
-        return True
+        # return True
+        # return int(self) == other
+        return super().__eq__(other)
+        # return int.__eq__(self, other)
+        # all the above solutions work the same
