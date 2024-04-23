@@ -1,0 +1,13 @@
+Importing the function from the module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Checking docstrings for module, class, methods:
+    >>> m = __import__("1-my_list").__doc__
+    >>> c = __import__("1-my_list").MyList.__doc__
+    >>> f = __import__("1-my_list").MyList.print_sorted.__doc__
+    >>> (len(m) and len(c) and len(f)) > 1
+    True
+
+Checking the inheritance from list:
+    >>> issubclass(MyList, list)
+    True
