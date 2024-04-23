@@ -1,19 +1,17 @@
 #!/usr/bin/python3
-
 '''
-This module defines a function called `lookup`.
+    Module contains lookup function
 '''
 
 
 def lookup(obj):
-    """
-    `lookup` takes an object as input and returns a list of its attributes\
-        and methods.
+    '''
+    Returns a list of valid attributes and methods of the given Python object.
 
     Args:
         obj: Any Python object (e.g., class instance, module, built-in type).
 
     Returns:
         list: A list of attribute and method names of the input object.
-    """
+    '''
     return dir(obj)
