@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
 """
 Module: 8-rectangle.py
 
@@ -11,6 +9,8 @@ This module defines the Rectangle class, which inherits from the\
 Classes:
     - Rectangle: Represents a rectangle with width and height.
 """
+
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
