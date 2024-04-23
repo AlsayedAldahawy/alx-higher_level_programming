@@ -46,16 +46,16 @@ class Square(Rectangle):
         self.__size = size
         Rectangle.__init__(self, size, size)
 
-    # def area(self):
-    #     """
-    #     Calculates and returns the area of the square.
+    def area(self):
+        """
+        Calculates and returns the area of the square.
 
-    #     Returns:
-    #         int: The area of the square.
+        Returns:
+            int: The area of the square.
 
-    #     Example:
-    #         >>> square = Square(5)
-    #         >>> square.area()
-    #         25
-    #     """
-    #     return self.__size ** 2
+        Example:
+            >>> square = Square(5)
+            >>> square.area()
+            25
+        """
+        return self.__size ** 2
