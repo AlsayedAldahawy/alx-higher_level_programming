@@ -60,9 +60,9 @@ class Student:
             # same as:
             """
             dict1 = {}
-            for i in attrs:
-                if i in self.__dict__:
-                    dict1[i] = self.__dict__[i]
+            for attr in attrs:
+                if attr in self.__dict__:
+                    dict1[attr] = self.__dict__[attr]
             return dict1
             """
         return self.__dict__
