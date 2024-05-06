@@ -43,10 +43,18 @@ def append_after(filename="", search_string="", new_string=""):
     with open(filename, "r") as file:
         lines = file.readlines()
 
-    i = 1
+    i = 0
+    c = 0
     for line in lines:
+
+        if c:
+            c = 0
+            i += 1
+            continue
+        print(line)
         if search_string in line:
-            lines.insert(i, new_string + "\n")
+            lines.insert(i + 1, new_string)
+            c = 1
         i += 1
 
     with open(filename, "w") as file:
