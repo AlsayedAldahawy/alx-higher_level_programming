@@ -50,7 +50,6 @@ def append_after(filename="", search_string="", new_string=""):
             if search_string in line:
                 wr_lines += new_string
 
-        
     # i = 0
     # c = 0
     # for line in lines:
