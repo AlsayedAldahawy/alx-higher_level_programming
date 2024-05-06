@@ -50,9 +50,8 @@ Explaining the algorithm of Pascal tringle:
 
 Each element in every row, except for the first and last elements,\
     is the sum of the two adjacent elements in the previous row: the one at\
-        the same position and the one immediately before it.'''
+        the same position and the one immediately before it.
 
-'''
                  1
                 1+1
               1+(2)+1      2 = 1+1
