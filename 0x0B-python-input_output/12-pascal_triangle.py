@@ -46,6 +46,17 @@ def pascal_triangle(n):
 
 
 '''
+Explaining the algorithm of Pascal tringle:
+
 Each element in every row, except for the first and last elements,\
     is the sum of the two adjacent elements in the previous row: the one at\
         the same position and the one immediately before it.'''
+
+'''
+                 1
+                1+1
+              1+(2)+1      2 = 1+1
+            1+(3)+(3)+1    3 = 1+(2), 3 = (2)+1
+          1+(4)+(6)+(4)+1  4 = 1+(3), 6 = (3)+(3), 4 = (3)+1
+
+'''
