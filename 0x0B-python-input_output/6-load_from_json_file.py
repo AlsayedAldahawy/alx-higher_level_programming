@@ -25,4 +25,4 @@ def load_from_json_file(filename):
         {'name': 'Alice', 'age': 30}
     """
     with open(filename) as file:
-        return json.load(file)
+        json.load(file)
