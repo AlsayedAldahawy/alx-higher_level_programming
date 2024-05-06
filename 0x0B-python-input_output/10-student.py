@@ -55,5 +55,14 @@ class Student:
             dict: A dictionary containing the student's attributes.
         """
         if type(attrs) is list:
-            return {attr: getattr(self, attr) for attr in attrs if attr in vars(self)}
+            return {attr: getattr(self, attr) for attr in attrs
+                    if attr in vars(self)}
+            # same as:
+            """
+            dict1 = {}
+            for i in attrs:
+                if i in self.__dict__:
+                    dict1[i] = self.__dict__[i]
+            return dict1
+            """
         return self.__dict__
