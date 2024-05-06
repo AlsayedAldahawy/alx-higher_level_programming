@@ -51,7 +51,7 @@ def append_after(filename="", search_string="", new_string=""):
             c = 0
             i += 1
             continue
-        print(line)
+
         if search_string in line:
             lines.insert(i + 1, new_string)
             c = 1
