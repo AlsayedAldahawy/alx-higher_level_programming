@@ -23,8 +23,8 @@ status_dict = {}
 try:
     for line in sys.stdin:
 
-        file_size += int(line.split(" ")[8])
-        status_code = int(line.split(" ")[7])
+        file_size += int(line.split(" ")[-1])
+        status_code = int(line.split(" ")[-2])
         count += 1
 
         if status_code not in status_dict:
