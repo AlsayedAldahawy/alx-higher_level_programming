@@ -171,3 +171,11 @@ class Rectangle(Base):
     def area(self):
         """return area"""
         return (self.width * self.height)
+
+    def to_dictionary(self):
+        """return dictionary of attributes"""
+        return {"x": self.x,
+                "y": self.y,
+                "id": self.id,
+                "height": self.height,
+                "width": self.width}
