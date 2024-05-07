@@ -50,19 +50,30 @@ def append_after(filename="", search_string="", new_string=""):
             if search_string in line:
                 wr_lines += new_string
 
-    # i = 0
-    # c = 0
-    # for line in lines:
+        '''
+        # Alternatively, we could solve the task by directly updating the\
+            list in place.
+        # However, modifying the list while iterating over it can be risky.
+        # If the added line satisfies the search condition, it might lead to
+        # an infinite loop. To avoid this, we use a separate list (wr_lines)
+        # to store our updates without interfering with the list we are\
+            iterating over.
 
-    #     if c:
-    #         c = 0
-    #         i += 1
-    #         continue
 
-    #     if search_string in line:
-    #         lines.insert(i + 1, new_string)
-    #         c = 1
-    #     i += 1
+        # i = 0
+        # c = 0
+        # for line in lines:
+
+        #     if c:
+        #         c = 0
+        #         i += 1
+        #         continue
+
+        #     if search_string in line:
+        #         lines.insert(i + 1, new_string)
+        #         c = 1
+        #     i += 1
+        '''
 
     with open(filename, "w") as file:
         file.writelines(wr_lines)
