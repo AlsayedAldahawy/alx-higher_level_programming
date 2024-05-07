@@ -23,8 +23,12 @@ status_dict = {}
 try:
     for line in sys.stdin:
 
-        file_size += int(line.split(" ")[-1])
-        status_code = int(line.split(" ")[-2])
+        try:
+            file_size += int(line.split()[-1])
+            status_code = int(line.split()[-2])
+        except (ValueError, IndexError):
+            pass
+
         count += 1
 
         if status_code not in status_dict:
