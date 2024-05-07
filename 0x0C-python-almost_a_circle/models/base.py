@@ -81,3 +81,14 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """creat class"""
+        if cls.__name__ == "Rectangle":
+            newIns = cls(1, 2)
+        elif cls.__name__ == "Square":
+            newIns = cls(1)
+
+        newIns.update(**dictionary)
+        return newIns
