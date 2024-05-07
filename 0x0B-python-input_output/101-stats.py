@@ -36,6 +36,6 @@ try:
             print_stats(file_size, status_dict)
             count = 1
 
-except KeyboardInterrupt as e:
+except KeyboardInterrupt:
     print_stats(file_size, status_dict)
-    print(e)
+    raise
