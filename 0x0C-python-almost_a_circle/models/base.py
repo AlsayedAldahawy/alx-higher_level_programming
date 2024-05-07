@@ -4,6 +4,8 @@
     Module "base.py" contains class Base
 '''
 
+import json
+
 
 class Base:
     '''
@@ -60,4 +62,4 @@ class Base:
         if not list_dictionaries:
             return "[]"
         else:
-            return list_dictionaries
+            return json.dumps(list_dictionaries)
