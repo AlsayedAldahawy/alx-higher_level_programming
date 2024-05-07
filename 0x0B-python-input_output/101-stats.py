@@ -16,12 +16,16 @@ def print_stats(file_size, status_dict):
         print(f"{key}: {value}")
 
 
-count = 1
+count = 0
 file_size = 0
 status_dict = {}
 
 try:
     for line in sys.stdin:
+
+        if count == 10:
+            print_stats(file_size, status_dict)
+            count = 0
 
         try:
             file_size += int(line.split()[-1])
@@ -35,10 +39,6 @@ try:
             status_dict[status_code] = 1
         else:
             status_dict[status_code] += 1
-
-        if count == 10:
-            print_stats(file_size, status_dict)
-            count = 1
 
     print_stats(file_size, status_dict)
 
