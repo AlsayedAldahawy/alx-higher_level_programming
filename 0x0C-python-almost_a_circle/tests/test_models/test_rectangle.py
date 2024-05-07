@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 import unittest
+import sys
+from io import StringIO
 from models.rectangle import Rectangle
 
 
@@ -105,3 +107,25 @@ class TestRectangle(unittest.TestCase):
         x3 = Rectangle(3, 1, 1)
         self.assertEqual(x1.area(), x2.area(), 35)
         self.assertEqual(x3.area(), 3)
+
+    def test_str(self):
+        x1 = Rectangle(2, 3, 5, 6, 10)
+
+        self.assertEqual(str(x1), "[Rectangle] (10) 5/6 - 2/3")
+
+        out = StringIO()
+        sys.stdout = out
+
+        print(x1)
+
+        self.assertEqual(out.getvalue(),
+                            "[Rectangle] (10) 5/6 - 2/3\n")
+
+    def test_display(self):
+        x1 = Rectangle(2, 3)
+
+        out = StringIO()
+        sys.stdout = out
+        x1.display()
+        x = "##\n##\n##\n"
+        self.assertEqual(out.getvalue(), x)
