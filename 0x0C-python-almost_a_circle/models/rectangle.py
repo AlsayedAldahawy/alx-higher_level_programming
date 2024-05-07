@@ -149,13 +149,21 @@ class Rectangle(Base):
                                                    self.y, self.width,
                                                    self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         ''' update'''
+
+        try:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
+        except Exception:
+            raise
+
         try:
             self.id = args[0]
             self.width = args[1]
             self.height = args[2]
             self.x = args[3]
             self.y = args[4]
-        except Exception:
+        except IndexError:
             pass
