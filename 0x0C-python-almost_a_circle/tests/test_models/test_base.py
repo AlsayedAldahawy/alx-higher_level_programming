@@ -32,5 +32,6 @@ class TestBase_initialization(unittest.TestCase):
         self.assertEqual(x1.id, x2.id - 1)
         self.assertEqual(x2.id, Base(None).id - 1)
 
+
 if __name__ == "__main__":
     unittest.main()
