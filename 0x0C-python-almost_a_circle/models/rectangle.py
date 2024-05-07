@@ -136,5 +136,8 @@ class Rectangle(Base):
         self.__y = value
 
     def display(self):
+        '''
+        display rect
+        '''
         for i in range(self.height):
             print("#" * self.width)
