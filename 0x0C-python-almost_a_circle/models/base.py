@@ -74,3 +74,10 @@ class Base:
             else:
                 list_to_j = [x.to_dictionary() for x in list_objs]
                 f.write(cls.to_json_string(list_to_j))
+
+    @staticmethod
+    def from_json_string(json_string):
+        if not json_string:
+            return []
+        else:
+            return json.loads(json_string)
