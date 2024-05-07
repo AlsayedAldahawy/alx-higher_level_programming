@@ -26,7 +26,7 @@ try:
         try:
             file_size += int(line.split()[-1])
             status_code = int(line.split()[-2])
-        except (ValueError, IndexError):
+        except (IndexError, ValueError):
             pass
 
         count += 1
@@ -39,6 +39,8 @@ try:
         if count == 10:
             print_stats(file_size, status_dict)
             count = 1
+
+    print_stats(file_size, status_dict)
 
 except KeyboardInterrupt:
     print_stats(file_size, status_dict)
