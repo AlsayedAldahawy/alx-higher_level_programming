@@ -98,3 +98,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError) as cm:
             x3 = Rectangle(5, 1, 3, -8, 5)
         self.assertEqual(str(cm.exception), "y must be >= 0")
+
+    def test_area(self):
+        x1 = Rectangle(5, 7, 1, 1, 20)
+        x2 = Rectangle(7, 5)
+        x3 = Rectangle(3, 1, 1)
+        self.assertEqual(x1.area(), x2.area(), 35)
+        self.assertEqual(x3.area(), 3)

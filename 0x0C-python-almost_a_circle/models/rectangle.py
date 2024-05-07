@@ -167,3 +167,8 @@ class Rectangle(Base):
             self.y = args[4]
         except IndexError:
             pass
+    
+
+    def area(self):
+        """return area"""
+        return (self.width * self.height)
