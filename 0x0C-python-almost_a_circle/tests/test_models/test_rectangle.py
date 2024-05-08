@@ -627,6 +627,16 @@ class TestUpdate(unittest.TestCase):
         self.assertEqual(self.x3.id, {"key": "value"})
         self.assertEqual(self.x3.width, 5)
         self.assertEqual(self.x3.height, 6)
+    def test_3args_err(self):
+
+        # width error
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, "3", 4)
+        self.assertEqual(str(cm.exception), "width must be an integer")
+
+        self.assertNotEqual(self.x4.width, "3")
+
+
 
 
 class TestArea(unittest.TestCase):
