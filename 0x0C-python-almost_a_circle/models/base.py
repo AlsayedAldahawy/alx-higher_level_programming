@@ -131,7 +131,6 @@ class Base:
                 #     else:
                 #         csvFile.writelines("z")
 
-
     @classmethod
     def load_from_file_csv(cls):
         """load drom csv"""
