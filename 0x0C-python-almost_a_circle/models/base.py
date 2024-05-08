@@ -6,6 +6,9 @@
 
 import json
 import csv
+import turtle
+import time
+import random
 
 
 class Base:
@@ -152,3 +155,65 @@ class Base:
             return [cls.create(**dict2) for dict2 in lstOfDicts]
         except Exception:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''
+        Draws lists of rectangles and squares
+        '''
+
+        # setup
+
+        ptr = turtle.Turtle()
+        ptr.pensize(5)
+        turtle.colormode(255)
+
+        # random background color each time
+        r = random.randint(0, 255)
+        b = random.randint(0, 255)
+        g = random.randint(0, 255)
+        turtle.Screen().bgcolor(r, b, g)
+
+        time.sleep(.5)
+
+        # Draw rectangles
+        for rect in list_rectangles:
+
+            # Random colors for each rect
+            r = random.randint(0, 255)
+            b = random.randint(0, 255)
+            g = random.randint(0, 255)
+            ptr.pencolor(r, b, g)
+
+            ptr.penup()
+            ptr.goto(rect.x, rect.y)
+            ptr.pendown()
+            ptr.forward(rect.width)
+            ptr.left(90)
+            ptr.forward(rect.height)
+            ptr.left(90)
+            ptr.forward(rect.width)
+            ptr.left(90)
+            ptr.forward(rect.height)
+            ptr.left(90)
+
+        # Draw squares
+        for squr in list_squares:
+
+            # Random colors for each squr
+            r = random.randint(0, 255)
+            b = random.randint(0, 255)
+            g = random.randint(0, 255)
+            ptr.pencolor(r, b, g)
+
+            ptr.penup()
+            ptr.goto(squr.x, squr.y)
+            ptr.pendown()
+            ptr.forward(squr.size)
+            ptr.left(90)
+            ptr.forward(squr.size)
+            ptr.left(90)
+            ptr.forward(squr.size)
+            ptr.left(90)
+            ptr.forward(squr.size)
+            ptr.left(90)
