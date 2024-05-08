@@ -108,7 +108,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-
+        """save to csv"""
         with open(cls.__name__ + ".csv", mode="w+") as csvFile:
             for obj in list_objs:
                 if cls.__name__ == "Rectangle":
@@ -122,19 +122,23 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        with open(cls.__name__ + ".csv", mode="r") as csvFile:
-            lines = csvFile.readlines()
+        """load drom csv"""
+        try:
+            with open(cls.__name__ + ".csv", mode="r") as csvFile:
+                lines = csvFile.readlines()
 
-        lst_dict = []
-        if cls.__name__ == "Rectangle":
-            attrList = ["id", "width", "height", "x", "y"]
-        elif cls.__name__ == "Square":
-            attrList = ["id", "size", "x", "y"]
+            lst_dict = []
+            if cls.__name__ == "Rectangle":
+                attrList = ["id", "width", "height", "x", "y"]
+            elif cls.__name__ == "Square":
+                attrList = ["id", "size", "x", "y"]
 
-        for line in lines:
+            for line in lines:
 
-            dict1 = {key: int(value)
-                     for key, value in zip(attrList, (line.split(",")))}
-            lst_dict.append(dict1)
+                dict1 = {key: int(value)
+                        for key, value in zip(attrList, (line.split(",")))}
+                lst_dict.append(dict1)
 
-        return [cls.create(**dict2) for dict2 in lst_dict]
+            return [cls.create(**dict2) for dict2 in lst_dict]
+        except Exception:
+            return []
