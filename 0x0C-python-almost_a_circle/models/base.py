@@ -98,8 +98,9 @@ class Base:
         """load json list of instances from file"""
         try:
             with open(cls.__name__ + ".json", mode="r") as jsonFile:
-                jsonList = jsonFile.read()
-                return [cls.create(**i) for i in
-                        cls.from_json_string(jsonList)]
+                jsonLDict = jsonFile.read()
+                instList = [cls.create(**i) for i in
+                            cls.from_json_string(jsonLDict)]
+                return instList
         except Exception:
             return []
