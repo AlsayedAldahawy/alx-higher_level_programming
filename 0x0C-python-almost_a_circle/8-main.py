@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ 8-main """
-from models.rectangle import Rectangle
+from models.rectangle import Square
 
 if __name__ == "__main__":
 
     try:
-        r1 = Rectangle(10, 10, "10", 10)
+        r1 = Square(10, 10, "10", 10)
         print(r1)
 
         r1.update(height=1)
