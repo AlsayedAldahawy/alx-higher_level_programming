@@ -51,14 +51,16 @@ class TestRectInitErrors(unittest.TestCase):
             x2 = Rectangle(2)
         self.assertEqual(
             str(cm.exception), "__init__() missing 1 required positional argument: 'height'")
-        
+
         with self.assertRaises(UnboundLocalError) as cm:
             print(x1)
-        self.assertEqual(str(cm.exception), "local variable 'x1' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x1' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x2)
-        self.assertEqual(str(cm.exception), "local variable 'x2' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x2' referenced before assignment")
 
     def test_width_error(self):
         with self.assertRaises(TypeError) as cm:
@@ -90,15 +92,18 @@ class TestRectInitErrors(unittest.TestCase):
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x1)
-        self.assertEqual(str(cm.exception), "local variable 'x1' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x1' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x2)
-        self.assertEqual(str(cm.exception), "local variable 'x2' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x2' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x3)
-        self.assertEqual(str(cm.exception), "local variable 'x3' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x3' referenced before assignment")
 
     def test_height_error(self):
         with self.assertRaises(TypeError) as cm:
@@ -131,15 +136,18 @@ class TestRectInitErrors(unittest.TestCase):
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x1)
-        self.assertEqual(str(cm.exception), "local variable 'x1' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x1' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x2)
-        self.assertEqual(str(cm.exception), "local variable 'x2' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x2' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x3)
-        self.assertEqual(str(cm.exception), "local variable 'x3' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x3' referenced before assignment")
 
     def test_x_error(self):
         with self.assertRaises(TypeError) as cm:
@@ -172,15 +180,18 @@ class TestRectInitErrors(unittest.TestCase):
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x1)
-        self.assertEqual(str(cm.exception), "local variable 'x1' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x1' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x2)
-        self.assertEqual(str(cm.exception), "local variable 'x2' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x2' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x3)
-        self.assertEqual(str(cm.exception), "local variable 'x3' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x3' referenced before assignment")
 
     def test_y_error(self):
         with self.assertRaises(TypeError) as cm:
@@ -213,15 +224,18 @@ class TestRectInitErrors(unittest.TestCase):
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x1)
-        self.assertEqual(str(cm.exception), "local variable 'x1' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x1' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x2)
-        self.assertEqual(str(cm.exception), "local variable 'x2' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x2' referenced before assignment")
 
         with self.assertRaises(UnboundLocalError) as cm:
             print(x3)
-        self.assertEqual(str(cm.exception), "local variable 'x3' referenced before assignment")
+        self.assertEqual(str(cm.exception),
+                         "local variable 'x3' referenced before assignment")
 
 
 class TestSettersGetters(unittest.TestCase):
@@ -627,38 +641,295 @@ class TestUpdate(unittest.TestCase):
         self.assertEqual(self.x3.id, {"key": "value"})
         self.assertEqual(self.x3.width, 5)
         self.assertEqual(self.x3.height, 6)
+
     def test_3args_err(self):
 
-        # width error
+        # width errors
+
         with self.assertRaises(TypeError) as cm:
             self.x4.update(2, "3", 4)
         self.assertEqual(str(cm.exception), "width must be an integer")
-
         self.assertNotEqual(self.x4.width, "3")
 
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, (1, 2), 4)
+        self.assertEqual(str(cm.exception), "width must be an integer")
+        self.assertNotEqual(self.x4.width, (1, 2))
 
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, [1, 2], 4)
+        self.assertEqual(str(cm.exception), "width must be an integer")
+        self.assertNotEqual(self.x4.width, [1, 2])
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, {"key": [1, 2]}, 4)
+        self.assertEqual(str(cm.exception), "width must be an integer")
+        self.assertNotEqual(self.x4.width, {"key": [1, 2]})
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, {5}, 4)
+        self.assertEqual(str(cm.exception), "width must be an integer")
+        self.assertNotEqual(self.x4.width, 5)
+
+        with self.assertRaises(ValueError) as cm:
+            self.x4.update(2, 0, 4)
+        self.assertEqual(str(cm.exception), "width must be > 0")
+        self.assertNotEqual(self.x4.width, 0)
+
+        with self.assertRaises(ValueError) as cm:
+            self.x4.update(2, -5, 4)
+        self.assertEqual(str(cm.exception), "width must be > 0")
+        self.assertNotEqual(self.x4.width, -5)
+
+        # height errors
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, "3")
+        self.assertEqual(str(cm.exception), "height must be an integer")
+        self.assertNotEqual(self.x4.height, "3")
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, (1, 2))
+        self.assertEqual(str(cm.exception), "height must be an integer")
+        self.assertNotEqual(self.x4.height, (1, 2))
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, [1, 2])
+        self.assertEqual(str(cm.exception), "height must be an integer")
+        self.assertNotEqual(self.x4.height, [1, 2])
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, {"key": [1, 2]})
+        self.assertEqual(str(cm.exception), "height must be an integer")
+        self.assertNotEqual(self.x4.height, {"key": [1, 2]})
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, {5})
+        self.assertEqual(str(cm.exception), "height must be an integer")
+        self.assertNotEqual(self.x4.height, 5)
+
+        with self.assertRaises(ValueError) as cm:
+            self.x4.update(2, 4, 0)
+        self.assertEqual(str(cm.exception), "height must be > 0")
+        self.assertNotEqual(self.x4.height, 0)
+
+        with self.assertRaises(ValueError) as cm:
+            self.x4.update(2, 5, -4)
+        self.assertEqual(str(cm.exception), "height must be > 0")
+        self.assertNotEqual(self.x4.height, -4)
+
+    def test_4args(self):
+        self.x4.update(2, 5, 6, 8)
+        self.assertEqual(self.x4.id, 2)
+        self.assertEqual(self.x4.width, 5)
+        self.assertEqual(self.x4.height, 6)
+        self.assertEqual(self.x4.x, 8)
+
+        self.x4.update("2", 6, 5, 7)
+        self.assertEqual(self.x4.id, "2")
+        self.assertEqual(self.x4.width, 6)
+        self.assertEqual(self.x4.height, 5)
+        self.assertEqual(self.x4.x, 7)
+
+        self.x4.update(-2, 5, 6, 8)
+        self.assertEqual(self.x4.id, -2)
+        self.assertEqual(self.x4.width, 5)
+        self.assertEqual(self.x4.height, 6)
+        self.assertEqual(self.x4.x, 8)
+
+        self.x4.update(None, 6, 5, 7)
+        self.assertEqual(self.x4.id, None)
+        self.assertEqual(self.x4.width, 6)
+        self.assertEqual(self.x4.height, 5)
+        self.assertEqual(self.x4.x, 7)
+
+        self.x4.update((None, "l", 7), 5, 6, 8)
+        self.assertEqual(self.x4.id, (None, 'l', 7))
+        self.assertEqual(self.x4.width, 5)
+        self.assertEqual(self.x4.height, 6)
+        self.assertEqual(self.x4.x, 8)
+
+        self.x4.update([(None, 'l', 7)], 6, 5, 7)
+        self.assertEqual(self.x4.id, [(None, 'l', 7)])
+        self.assertEqual(self.x4.width, 6)
+        self.assertEqual(self.x4.height, 5)
+        self.assertEqual(self.x4.x, 7)
+
+        self.x4.update({"key": "value"}, 5, 6, 0)
+        self.assertEqual(self.x4.id, {"key": "value"})
+        self.assertEqual(self.x4.width, 5)
+        self.assertEqual(self.x4.height, 6)
+        self.assertEqual(self.x4.x, 0)
+
+    def test_4args_err(self):
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 2, "3")
+        self.assertEqual(str(cm.exception), "x must be an integer")
+        self.assertNotEqual(self.x4.x, "3")
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 2, (1, 2))
+        self.assertEqual(str(cm.exception), "x must be an integer")
+        self.assertNotEqual(self.x4.x, (1, 2))
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 3, [1, 2])
+        self.assertEqual(str(cm.exception), "x must be an integer")
+        self.assertNotEqual(self.x4.x, [1, 2])
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 3, {"key": [1, 2]})
+        self.assertEqual(str(cm.exception), "x must be an integer")
+        self.assertNotEqual(self.x4.x, {"key": [1, 2]})
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 3, {5})
+        self.assertEqual(str(cm.exception), "x must be an integer")
+        self.assertNotEqual(self.x4.x, 5)
+
+        with self.assertRaises(ValueError) as cm:
+            self.x4.update(2, 4, 3, -5)
+        self.assertEqual(str(cm.exception), "x must be >= 0")
+        self.assertNotEqual(self.x4.x, -5)
+
+    def test_5args(self):
+        self.x5.update(2, 5, 6, 8, 7)
+        self.assertEqual(self.x5.id, 2)
+        self.assertEqual(self.x5.width, 5)
+        self.assertEqual(self.x5.height, 6)
+        self.assertEqual(self.x5.x, 8)
+        self.assertEqual(self.x5.y, 7)
+
+        self.x5.update("2", 6, 5, 7, 8)
+        self.assertEqual(self.x5.id, "2")
+        self.assertEqual(self.x5.width, 6)
+        self.assertEqual(self.x5.height, 5)
+        self.assertEqual(self.x5.x, 7)
+        self.assertEqual(self.x5.y, 8)
+
+        self.x5.update(-2, 5, 6, 8, 7)
+        self.assertEqual(self.x5.id, -2)
+        self.assertEqual(self.x5.width, 5)
+        self.assertEqual(self.x5.height, 6)
+        self.assertEqual(self.x5.x, 8)
+        self.assertEqual(self.x5.y, 7)
+
+        self.x5.update(None, 6, 5, 7, 8)
+        self.assertEqual(self.x5.id, None)
+        self.assertEqual(self.x5.width, 6)
+        self.assertEqual(self.x5.height, 5)
+        self.assertEqual(self.x5.x, 7)
+        self.assertEqual(self.x5.y, 8)
+
+        self.x5.update((None, "l", 7), 5, 6, 8, 7)
+        self.assertEqual(self.x5.id, (None, 'l', 7))
+        self.assertEqual(self.x5.width, 5)
+        self.assertEqual(self.x5.height, 6)
+        self.assertEqual(self.x5.x, 8)
+        self.assertEqual(self.x5.y, 7)
+
+        self.x5.update([(None, 'l', 7)], 6, 5, 7, 8)
+        self.assertEqual(self.x5.id, [(None, 'l', 7)])
+        self.assertEqual(self.x5.width, 6)
+        self.assertEqual(self.x5.height, 5)
+        self.assertEqual(self.x5.x, 7)
+        self.assertEqual(self.x5.y, 8)
+
+        self.x5.update({"key": "value"}, 5, 6, 0, 7)
+        self.assertEqual(self.x5.id, {"key": "value"})
+        self.assertEqual(self.x5.width, 5)
+        self.assertEqual(self.x5.height, 6)
+        self.assertEqual(self.x5.x, 0)
+        self.assertEqual(self.x5.y, 7)
+
+    def test_5args_err(self):
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 2, 7, "3")
+        self.assertEqual(str(cm.exception), "y must be an integer")
+        self.assertNotEqual(self.x4.y, "3")
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 2, 6, (1, 2))
+        self.assertEqual(str(cm.exception), "y must be an integer")
+        self.assertNotEqual(self.x4.y, (1, 2))
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 3, 4, [1, 2])
+        self.assertEqual(str(cm.exception), "y must be an integer")
+        self.assertNotEqual(self.x4.y, [1, 2])
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 3, 4, {"key": [1, 2]})
+        self.assertEqual(str(cm.exception), "y must be an integer")
+        self.assertNotEqual(self.x4.y, {"key": [1, 2]})
+
+        with self.assertRaises(TypeError) as cm:
+            self.x4.update(2, 4, 3, 7, {5})
+        self.assertEqual(str(cm.exception), "y must be an integer")
+        self.assertNotEqual(self.x4.y, 5)
+
+        with self.assertRaises(ValueError) as cm:
+            self.x4.update(2, 4, 3, 4, -5)
+        self.assertEqual(str(cm.exception), "y must be >= 0")
+        self.assertNotEqual(self.x4.x, -5)
+
+    def test_more_args(self):
+
+        # ignores the extra args
+        self.x7.update(2, 5, 6, 8, 7, 9, 10, 11)
+        self.assertEqual(self.x7.id, 2)
+        self.assertEqual(self.x7.width, 5)
+        self.assertEqual(self.x7.height, 6)
+        self.assertEqual(self.x7.x, 8)
+        self.assertEqual(self.x7.y, 7)
 
 
 class TestArea(unittest.TestCase):
-    def test_area(self):
+    def test_area_after_initialization(self):
         x1 = Rectangle(5, 7, 1, 1, 20)
         x2 = Rectangle(7, 5)
         x3 = Rectangle(3, 1, 1)
         self.assertEqual(x1.area(), x2.area(), 35)
         self.assertEqual(x3.area(), 3)
 
+    def test_area_after_update(self):
+        x1 = Rectangle(5, 7, 1, 1, 20)
+        x2 = Rectangle(7, 5)
+        x3 = Rectangle(3, 1, 1)
+
+        x1.update(17, 2, 6, 2, 6)
+        x2.update(18, 4, 3, 0, 5)
+        x3.update(16, 4, 6, 5, 0)
+
+        self.assertEqual(x1.area(), x2.area(), 12)
+        self.assertEqual(x3.area(), 24)
+
     def test_str(self):
         x1 = Rectangle(2, 3, 5, 6, 10)
-
         self.assertEqual(str(x1), "[Rectangle] (10) 5/6 - 2/3")
 
+    def test_str_Aftr_update(self):
+        x1 = Rectangle(1, 1, 1, 1, 1)
+        self.assertEqual(str(x1), "[Rectangle] (1) 1/1 - 1/1")
+        x1.update(17, 2, 5, 6, 7)
+        self.assertEqual(str(x1), "[Rectangle] (17) 6/7 - 2/5")
+
+    def test_print(self):
+        x1 = Rectangle(17, 2, 5, 6, 7)
         out = StringIO()
         sys.stdout = out
-
         print(x1)
-
         self.assertEqual(out.getvalue(),
-                         "[Rectangle] (10) 5/6 - 2/3\n")
+                         "[Rectangle] (7) 5/6 - 17/2\n")
+        
+    def test_print_Aftr_update(self):
+        x1 = Rectangle(17, 2, 5, 6, 7)
+        x1.update(18, 4, 3, 0, 5)
+        out = StringIO()
+        sys.stdout = out
+        print(x1)
+        self.assertEqual(out.getvalue(),
+                         "[Rectangle] (18) 0/5 - 4/3\n")
 
     def test_display(self):
         x1 = Rectangle(2, 3)
