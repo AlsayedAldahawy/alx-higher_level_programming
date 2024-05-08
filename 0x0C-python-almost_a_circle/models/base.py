@@ -63,7 +63,21 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """ return json string"""
+        """
+        Converts a list of dictionaries to a JSON string.
+
+        Args:
+            list_dictionaries (list): A list of dictionaries representing\
+                objects.
+
+        Returns:
+            str: A JSON string containing the serialized data.
+
+        Example usage:
+            rect_dict1 = {"id": 1, "width": 50, "height": 30}
+            rect_dict2 = {"id": 2, "width": 40, "height": 20}
+            json_str = to_json_string([rect_dict1, rect_dict2])
+        """
         if not list_dictionaries:
             return "[]"
         else:
@@ -71,7 +85,25 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """
+        Saves a list of objects to a JSON file.
 
+        Args:
+            list_objs (list): A list of objects to be saved.
+
+        Notes:
+            - The JSON file is named after the class name (e.g.,\
+                "Rectangle.json" or "Square.json").
+            - If list_objs is empty or None, an empty JSON array is created.
+            - The attribute names are determined based on the class type.
+
+        Example usage:
+            rectangles = [rect1, rect2]
+            Rectangle.save_to_file(rectangles)
+            # OR
+            squares = [square1, square2]
+            Square.save_to_file(squares)
+        """
         with open(cls.__name__ + ".json", "+w") as f:
             if not list_objs:
                 f.write("[]")
@@ -81,6 +113,21 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """
+        Converts a JSON string to a list of dictionaries.
+
+        Args:
+            json_string (str): A valid JSON string representing a list of\
+                dictionaries.
+
+        Returns:
+            list: A list of dictionaries parsed from the JSON string.
+
+        Example usage:
+            json_str = '[{"id": 1, "width": 50, "height": 30},\
+                {"id": 2, "width": 40, "height": 20}]'
+            obj_list = from_json_string(json_str)
+        """
         if not json_string:
             return []
         else:
@@ -88,7 +135,24 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """creat class"""
+        """
+        Creates an instance of the class and initializes its attributes\
+            using a dictionary.
+
+        Args:
+            **dictionary: Keyword arguments representing attribute-value pairs.
+
+        Returns:
+            YourClass: An instance of the class with attributes set based on\
+                the provided dictionary.
+
+        Example usage:
+            rect_dict = {"id": 1, "width": 50, "height": 30, "x": 10, "y": 20}
+            rectangle_instance = Rectangle.create(**rect_dict)
+            # OR
+            square_dict = {"id": 2, "size": 40, "x": 5, "y": 15}
+            square_instance = Square.create(**square_dict)
+        """
         if cls.__name__ == "Rectangle":
             newIns = cls(1, 2)
         elif cls.__name__ == "Square":
@@ -99,7 +163,24 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """load json list of instances from file"""
+        """
+        Loads a list of instances from a JSON file.
+
+        Returns:
+            list: A list of objects created from the JSON data.
+
+        Notes:
+            - The JSON file should contain a list of dictionaries, each\
+                representing an instance.
+            - The attribute names are determined based on the class type.
+            - If the JSON file does not exist or an error occurs during\
+                loading, an empty list is returned.
+
+        Example usage:
+            rectangles = Rectangle.load_from_file()
+            # OR
+            squares = Square.load_from_file()
+        """
         try:
             with open(cls.__name__ + ".json", mode="r") as jsonFile:
                 jsonLDict = jsonFile.read()
@@ -111,7 +192,24 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """save to csv"""
+        """
+        Saves a list of objects to a CSV file.
+
+        Args:
+            cls (type): The class type (used to determine attribute names).
+            list_objs (list): A list of objects to be saved.
+
+        Notes:
+            - If list_objs is empty or None, an empty CSV file is created.
+            - The CSV file is named after the class name (e.g.,"Rectangle.csv"\
+                or "Square.csv").
+            - The attribute names are determined based on the class type.
+
+        Example usage:
+            Rectangle.save_to_file_csv([rect1, rect2])
+            # OR
+            Square.save_to_file_csv([square1, square2])
+        """
         with open(cls.__name__ + ".csv", mode="w+") as csvFile:
             if list_objs is None or list_objs == []:
                 csvFile.write("[]")
@@ -136,7 +234,25 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """load drom csv"""
+        """
+        Loads objects from a CSV file and creates instances of the class.
+
+        Returns:
+            list: A list of objects created from the CSV data.
+
+        Notes:
+            - The CSV file should have attribute values separated by commas.
+            - The CSV file is named after the class name (e.g.,"Rectangle.csv"\
+                or "Square.csv").
+            - The attribute names are determined based on the class type.
+            - If the CSV file doesn't exist or an error occurs during loading,\
+                an empty list is returned.
+
+        Example usage:
+            rectangles = Rectangle.load_from_file_csv()
+            # OR
+            squares = Square.load_from_file_csv()
+        """
         try:
             with open(cls.__name__ + ".csv", mode="r") as csvFile:
                 lines = csvFile.readlines()
