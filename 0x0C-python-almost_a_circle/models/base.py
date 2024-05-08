@@ -5,6 +5,7 @@
 '''
 
 import json
+import csv
 
 
 class Base:
@@ -104,3 +105,36 @@ class Base:
                 return instList
         except Exception:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+
+        with open(cls.__name__ + ".csv", mode="w+") as csvFile:
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csvFile.writelines("%s,%d,%d,%d,%d\n" % (
+                        obj.id, obj.width, obj.height, obj.x, obj.y))
+                elif cls.__name__ == "Square":
+                    csvFile.writelines("%s,%d,%d,%d\n" % (
+                        obj.id, obj.size, obj.x, obj.y))
+                else:
+                    csvFile.writelines("z")
+
+    @classmethod
+    def load_from_file_csv(cls):
+        with open(cls.__name__ + ".csv", mode="r") as csvFile:
+            lines = csvFile.readlines()
+
+        lst_dict = []
+        if cls.__name__ == "Rectangle":
+            attrList = ["id", "width", "height", "x", "y"]
+        elif cls.__name__ == "Square":
+            attrList = ["id", "size", "x", "y"]
+
+        for line in lines:
+
+            dict1 = {key: int(value)
+                     for key, value in zip(attrList, (line.split(",")))}
+            lst_dict.append(dict1)
+
+        return [cls.create(**dict2) for dict2 in lst_dict]
