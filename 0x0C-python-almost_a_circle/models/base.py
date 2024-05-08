@@ -136,7 +136,7 @@ class Base:
             for line in lines:
 
                 dict1 = {key: int(value)
-                        for key, value in zip(attrList, (line.split(",")))}
+                         for key, value in zip(attrList, (line.split(",")))}
                 lst_dict.append(dict1)
 
             return [cls.create(**dict2) for dict2 in lst_dict]
