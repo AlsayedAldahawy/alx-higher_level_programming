@@ -158,62 +158,71 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        '''
-        Draws lists of rectangles and squares
-        '''
+        """
+        Draws lists of rectangles and squares using Python Turtle graphics.
 
-        # setup
+        Args:
+            list_rectangles (list): A list of Rectangle objects.
+            list_squares (list): A list of Square objects.
 
+        Returns:
+            None: The function displays the shapes on the screen.
+
+        Example usage:
+            rect1 = Rectangle(x=50, y=50, width=100, height=60)
+            rect2 = Rectangle(x=-30, y=-20, width=80, height=40)
+            square1 = Square(x=10, y=-70, size=50)
+            square2 = Square(x=-60, y=30, size=70)
+            draw([rect1, rect2], [square1, square2])
+        """
+        # Initialize the turtle
         ptr = turtle.Turtle()
-        ptr.pensize(5)
+        ptr.pensize(4)
         turtle.colormode(255)
 
-        # random background color each time
-        r = random.randint(0, 255)
-        b = random.randint(0, 255)
-        g = random.randint(0, 255)
-        turtle.Screen().bgcolor(r, b, g)
-
-        time.sleep(.5)
+        # Set a random background color
+        r, g, b = random.randint(0, 255), random.randint(
+            0, 255), random.randint(0, 255)
+        turtle.Screen().bgcolor(r, g, b)
+        time.sleep(0.5)  # Pause briefly to appreciate the background color
 
         # Draw rectangles
         for rect in list_rectangles:
+            ptr.showturtle()
 
-            # Random colors for each rect
-            r = random.randint(0, 255)
-            b = random.randint(0, 255)
-            g = random.randint(0, 255)
-            ptr.pencolor(r, b, g)
+            # Random colors for each rectangle
+            r, g, b = random.randint(0, 255), random.randint(
+                0, 255), random.randint(0, 255)
+            ptr.pencolor(r, g, b)
 
             ptr.penup()
             ptr.goto(rect.x, rect.y)
             ptr.pendown()
-            ptr.forward(rect.width)
-            ptr.left(90)
-            ptr.forward(rect.height)
-            ptr.left(90)
-            ptr.forward(rect.width)
-            ptr.left(90)
-            ptr.forward(rect.height)
-            ptr.left(90)
+            # Draw the rectangle by moving forward twice (width and height)
+            for _ in range(2):
+                ptr.forward(rect.width)
+                ptr.left(90)
+                ptr.forward(rect.height)
+                ptr.left(90)
+            ptr.hideturtle()
 
         # Draw squares
         for squr in list_squares:
+            ptr.showturtle()
 
-            # Random colors for each squr
-            r = random.randint(0, 255)
-            b = random.randint(0, 255)
-            g = random.randint(0, 255)
-            ptr.pencolor(r, b, g)
+            # Random colors for each square
+            r, g, b = random.randint(0, 255), random.randint(
+                0, 255), random.randint(0, 255)
+            ptr.pencolor(r, g, b)
 
             ptr.penup()
             ptr.goto(squr.x, squr.y)
             ptr.pendown()
-            ptr.forward(squr.size)
-            ptr.left(90)
-            ptr.forward(squr.size)
-            ptr.left(90)
-            ptr.forward(squr.size)
-            ptr.left(90)
-            ptr.forward(squr.size)
-            ptr.left(90)
+            #  Draw the square by moving forward four times (each side)
+            for _ in range(4):
+                ptr.forward(squr.size)
+                ptr.left(90)
+            ptr.hideturtle()
+
+        # Keep the window open until clicked
+        turtle.exitonclick()
