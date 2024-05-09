@@ -5,10 +5,10 @@
 -- The database name will be passed as an argument to the mysql command
 SELECT
     score,
-    NAME
+    name
 FROM
     second_table
 WHERE
-    'name' != ""
+    name != ""
 ORDER BY
     score DESC
