@@ -11,4 +11,4 @@ FROM
 WHERE
     'name' != ""
 ORDER BY
-    score DESC;
+    score DESC
