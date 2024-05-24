@@ -1,11 +1,11 @@
 -- Lists all genres from the database hbtn_0d_tvshows along with the number of
 SELECT
     g.NAME AS genre,
-    count(*) as number_of_shows
+    count(*) AS number_of_shows
 FROM
     tv_genres as g
-    inner join tv_show_genres as g2 on g.id = g2.genre_id
-group by
+    INNER JOIN tv_show_genres AS g2 ON g.id = g2.genre_id
+GROUP BY
     genre
-order by
+ORDER BY
     number_of_shows DESC;
