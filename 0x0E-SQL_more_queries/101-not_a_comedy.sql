@@ -13,4 +13,5 @@ where
             INNER JOIN tv_genres AS g ON g.id = sg.genre_id
         where
             g.name = "Comedy"
+        ORDER BY s.title
     );
