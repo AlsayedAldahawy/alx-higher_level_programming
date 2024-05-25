@@ -5,13 +5,13 @@ FROM
     tv_shows AS s
     LEFT JOIN tv_show_genres AS sg ON s.id = sg.show_id
 where
-    sg.genre_id NOT IN(
+    s.id NOT IN(
         SELECT DISTINCT
-            sg.genre_id
+            sg.show_id
         FROM
             tv_show_genres AS sg
             INNER JOIN tv_genres AS g ON g.id = sg.genre_id
         where
             g.name = "Comedy"
-        ORDER BY s.title
-    );
+    )
+ORDER BY s.title;
