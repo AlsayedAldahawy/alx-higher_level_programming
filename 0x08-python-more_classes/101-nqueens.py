@@ -1,27 +1,8 @@
 #!/usr/bin/python3
 import sys
 
-
-if __name__ == "__main__":
-    argv = sys.argv
-    argc = len(argv)
-
-    if argc != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-    if not isinstance(eval(argv[-1]), int):
-        print("N must be a number")
-        sys.exit(1)
-    if eval(argv[-1]) < 4:
-        print("N must be at least 4")
-        sys.exit(1)
-
-    N = eval(argv[-1])
-
-    # solving a row
-
+def solvequeens(N):
     board = []
-
     solutions = []
     startpoint = 0
     while (startpoint < N):
@@ -62,3 +43,22 @@ if __name__ == "__main__":
     # print("queens:",queens)
     for quns in solutions:
         print(quns)
+
+if __name__ == "__main__":
+    argv = sys.argv
+    argc = len(argv)
+
+    if argc != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    if not isinstance(eval(argv[-1]), int):
+        print("N must be a number")
+        sys.exit(1)
+    if eval(argv[-1]) < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+
+    N = eval(argv[-1])
+
+    # solving a row
+    solvequeens(N)
