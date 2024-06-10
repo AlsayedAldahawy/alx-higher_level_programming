@@ -20,7 +20,8 @@ if __name__ == "__main__":
 
     # Execute a query to retrieve states whose names start with 'N'
     cur.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC;")
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' \
+            ORDER BY states.id ASC;")
 
     # Fetch all rows returned by the query
     rows = cur.fetchall()
