@@ -19,7 +19,8 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Execute a query to retrieve rows with the specified state name
-    cur.execute("SELECT * FROM states WHERE name = '{}';".format(argv[4]))
+    cur.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY '{}';".format(argv[4]))
 
     # Fetch all rows returned by the query
     rows = cur.fetchall()
