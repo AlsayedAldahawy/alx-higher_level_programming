@@ -7,7 +7,7 @@ Usage:
     - Ensure you have the necessary dependencies installed
         (SQLAlchemy, MySQLdb).
     - Run the script with the following command:
-        python3 script_name.py <username> <password> <database_name>
+        ./8-model_state_fetch_first.py <username> <password> <database_name>
 
 Arguments:
     <username> (str): MySQL username.
@@ -15,7 +15,7 @@ Arguments:
     <database_name> (str): Name of the database containing the "states" table.
 
 Example:
-    python3 script_name.py myuser mypassword mydatabase
+    ./8-model_state_fetch_first.py myuser mypassword mydatabase
 """
 
 if __name__ == "__main__":
