@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-This script retrieves and prints the first state ID and name from a database.
+This script retrieves and prints state IDs and names from a database.
+The query filters states whose names contain the letter 'a'.
 
 Usage:
     - Ensure you have the necessary dependencies installed
@@ -20,7 +21,7 @@ Example:
 
 if __name__ == "__main__":
     from sys import argv
-    from model_state import State
+    from model_state import Base, State
     from sqlalchemy.orm import sessionmaker
     from sqlalchemy import create_engine
 
@@ -32,10 +33,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query the "states" table and retrieve the first state
-    state = session.query(State).order_by(State.id).first()
-
-    if state:
-        print(state.id, state.name, sep=": ")
-    else:
-        print("Nothing")
+    # Query states and print IDs and names
+    states = session.query(State).order_by(
+        State.id).filter(State.name.like('%a%'))
+    [print(state.id, state.name, sep=": ") for state in states]
