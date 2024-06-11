@@ -16,7 +16,8 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Execute a query to join 'cities' and 'states' tables
-    query = "SELECT * FROM cities c LEFT JOIN states s ON c.state_id = s.id;"
+    query = """SELECT c.id, c.name, s.name FROM cities c LEFT JOIN states s
+    ON c.state_id = s.id ORDER BY c.id ASC;"""
     cur.execute(query)
 
     # Fetch all rows returned by the query
