@@ -4,7 +4,8 @@
 This script adds a new state named "Louisiana" to a MySQL database.
 
 Usage:
-    - Ensure you have the necessary dependencies installed (SQLAlchemy, MySQLdb).
+    - Ensure you have the necessary dependencies installed
+        (SQLAlchemy, MySQLdb).
     - Run the script with the following command:
         python3 script_name.py <username> <password> <database_name>
 
@@ -36,7 +37,8 @@ if __name__ == "__main__":
     session.add(state)
 
     # Query the state ID for the newly added state
-    state_id = session.query(State.id).filter(State.name == "Louisiana").one_or_none()
+    state_id = session.query(State.id).filter(
+        State.name == "Louisiana").one_or_none()
     print(state_id.id)
 
     # Commit the changes to the database
