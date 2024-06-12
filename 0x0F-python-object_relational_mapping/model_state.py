@@ -33,5 +33,5 @@ class State(Base):
         name (str): Name of the state (max length: 128 characters).
     """
     __tablename__ = "states"
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
