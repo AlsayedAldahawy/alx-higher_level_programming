@@ -12,5 +12,3 @@ r1.print();
 console.log('Double:');
 r1.double();
 r1.print();
-
-
